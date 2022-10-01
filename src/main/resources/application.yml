@@ -1,0 +1,24 @@
+spring:
+  # Server configuration
+  server:
+    port: 8080 #set your port
+  # Database Configuration
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update #create, create-drop, validate, update
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://localhost:3306/mysqldb
+    username: root
+    password: pass123
+    driverClassName: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+  #Loggin Configuration
+  logging:
+    pattern:
+      console: "%d %-5level %logger : %msg%n"
+    level:
+      org.springframework: info
+      org.hibernate: debug
