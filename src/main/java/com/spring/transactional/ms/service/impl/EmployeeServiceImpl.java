@@ -5,17 +5,17 @@ import com.spring.transactional.ms.repository.EmployeeRepository;
 import com.spring.transactional.ms.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
 public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
 	EmployeeRepository employeeRepository;
 
 	@Override
-	//@Transactional(propagation = Propagation.SUPPORTS)
+	@Transactional(propagation = Propagation.MANDATORY)
 	public void insertEmployee(Employee employee) {
 		employeeRepository.save(employee);
 	}
